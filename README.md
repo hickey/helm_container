@@ -4,7 +4,7 @@ Docker container for serving Helm Charts
 ## Notes
 
 * SSL is not currently supported.
-* Map volume to `/usr/share/nginx/html`
+* Map volume to `/web/html`
 * nginx runs on port 80
 * helm is installed in /usr/local/bin
 

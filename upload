@@ -1,6 +1,0 @@
-#!/usr/bin/env perl
-
-system("/usr/bin/env > /tmp/upload.env");
-
-print "Got it!\n";
-
