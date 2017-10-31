@@ -1,4 +1,4 @@
 #!/bin/sh
-#/bin/chown -R nginx:nginx /web/html
+/bin/chown -R nginx:nginx /web/html
 cd /web/cgi-bin
 /usr/sbin/uwsgi --logto /web/logs/uwsgi.log /etc/uwsgi/uwsgi.ini

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Instant Markdown</title>
+  <style>
+      .markdown-body {
+          box-sizing: border-box;
+          min-width: 200px;
+          max-width: 980px;
+          margin: 0 auto;
+          padding: 45px;
+      }
+    </style>
+<link rel="stylesheet" href="github-markdown.css">
+<link rel="stylesheet" href="github-highlight.css">
+<script src="socket.io.js"></script><style>@media print {#ghostery-purple-box {display:none !important}}</style>
+<script>
+      var socket = io();
+      socket.on('markdown', function (msg) {
+        document.getElementById("markdown").innerHTML = msg;
+        var cursor = document.getElementById("instant-markdown-cursor");
+        if (cursor) {
+          cursor.scrollIntoView();
+        }
+      });
+      socket.on('disconnect', function() {
+        window.close();
+      })
+    </script>
+</head>
+
+<body style="">
+  <article id="markdown" class="markdown-body"><h1 id="helm-charts-repository">Helm Charts Repository</h1>
+<p>To use this Chart repository, please setup a connection to the repository
+with the following command:</p>
+<pre><code class="language-console">$ helm repo add &lt;REPO_NAME&gt; %SCHEME%://%HTTP_HOST%/
+</code></pre>
+<h2 id="uploading-charts-to-the-repository">Uploading Charts to the Repository</h2>
+<p>Charts can be uploaded either with the form below or by executing the following command:</p>
+<pre><code class="language-console">$ curl -X POST -F file=@&lt;FILENAME&gt; %SCHEME%://%HTTP_HOST%/upload
+</code></pre>
+<p>It is required that the form key be <code>file</code> and the @ sign needs to be used to tell curl to send the contents of the file.</p>
+<form method="POST" action="/upload" enctype="multipart/form-data">
+  <input type="file" id="file" name="file">
+  <label for="file">Select a file to upload.</label>
+  <input type="submit" value="Upload">
+</form>
+</article>
+
+
+</body></html>

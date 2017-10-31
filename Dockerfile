@@ -6,7 +6,7 @@ ENV HELM_VERSION "2.7.0"
 RUN apk update && \
 
     # Install necessary packages
-    apk add ca-certificates openssl python uwsgi-python && \
+    apk add ca-certificates openssl python uwsgi-python nginx-mod-http-echo && \
 
     # Update the CA roots
     update-ca-certificates && \
@@ -26,3 +26,4 @@ ADD mime.types /etc/nginx/
 ADD uwsgi.ini /etc/uwsgi/
 ADD uwsgi-run /etc/service/uwsgi/run
 ADD upload.py /web/cgi-bin/
+ADD html/ /web/html/

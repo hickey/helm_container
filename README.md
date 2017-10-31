@@ -10,7 +10,7 @@ Docker container for serving Helm Charts
 
 ## TODO
 
-* Add script to accept upload of helm chart 
+* Add script to accept upload of helm chart (done as of 1.2.0)
   * Store file to html root
   * Run helm repo index `DIR`
 

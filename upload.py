@@ -16,9 +16,10 @@ def application(env, start_response):
                     environ=env,
                     keep_blank_values=True
                 )
+    #output.append(pprint.pformat(post))
     chart_name = post['file'].filename
     upload_fp = post['file'].file
-
+    
     try:
         # attempt to save the chart to  the top of html
         with open("/web/html/%s" % chart_name, "w") as chart_fp:
